@@ -4,6 +4,7 @@ import authRoutes from './routes/authroutes.js'
 import connectToMongoDB from './db/connectToMongoDB.js'
 import { sendMessage } from './controllers/messageController.js'
 import messageRoutes from "./routes/messageroutes.js"
+import userRoutes from "./routes/userroutes.js"
 import cookieParser from 'cookie-parser'
 const app=express()
 
@@ -21,6 +22,7 @@ app.use(cookieParser())
 
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messageRoutes)
+app.use("/api/users", userRoutes)
 app.listen(PORT, ()=>{
     connectToMongoDB()
     console.log(`server is running on port ${PORT}`)})
