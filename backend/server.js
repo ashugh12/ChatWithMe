@@ -4,6 +4,7 @@ import authRoutes from './routes/authroutes.js'
 import connectToMongoDB from './db/connectToMongoDB.js'
 import { sendMessage } from './controllers/messageController.js'
 import messageRoutes from "./routes/messageroutes.js"
+import cookieParser from 'cookie-parser'
 const app=express()
 
 
@@ -15,6 +16,7 @@ app.get("/", (req, res)=>{
     res.send("hello")
 })
 app.use(express.json())
+app.use(cookieParser())
 //To parse the incoming request with the JSON payloads (from req.body)
 
 app.use("/api/auth", authRoutes)
